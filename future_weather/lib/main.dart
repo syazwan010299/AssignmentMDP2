@@ -36,15 +36,18 @@ class MyFirstPage extends StatelessWidget{
         children: <Widget>[
           Expanded
           (
-            flex: 4,
+            flex: 4, 
+            child: null,
           ),
           Expanded
           (
             flex: 4,
+            child:null,
           ),
           Expanded
           (
             flex: 2,
+            child:null,
           ),
         ],
       ),
