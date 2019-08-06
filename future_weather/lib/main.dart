@@ -12,8 +12,44 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return PageView.builder(
+      itemBuilder: (context, position) {
+        return MyFirstPage();
+       },
+    );
   }
   
+}
+
+class MyFirstPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold
+    (
+      appBar:AppBar
+      (
+        title: Text("Future Weather"),
+      ),
+      body: Column
+      (
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded
+          (
+            flex: 4,
+          ),
+          Expanded
+          (
+            flex: 4,
+          ),
+          Expanded
+          (
+            flex: 2,
+          ),
+        ],
+      ),
+    );
+  }
+
 }
 
