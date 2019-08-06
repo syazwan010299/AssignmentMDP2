@@ -91,6 +91,7 @@ packages:
   provider:
     dependency: "direct main"
     description:
+    
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
