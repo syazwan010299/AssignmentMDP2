@@ -21,8 +21,13 @@ class MyWeatherPage extends StatefulWidget{
 }
 
 class _MyWeatherPageState extends State<MyWeatherPage> {
+  final _pageController = PageController();
+  final _currentPageNotifer = ValueNotifier<int>(0);
+
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Scaffold(
+      
+    );
   }
 }
