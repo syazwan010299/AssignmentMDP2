@@ -3,17 +3,25 @@ import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   
   @override
-  _MyAppState createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      //debugShowCheckedModeBanner: false,
+      home: MyWeatherPage(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
+class MyWeatherPage extends StatefulWidget{
+  @override
+  _MyWeatherPageState createState() => _MyWeatherPageState();
+}
+
+class _MyWeatherPageState extends State<MyWeatherPage> {
   @override
   Widget build(BuildContext context) {
     return Placeholder();
   }
-  
 }
-
