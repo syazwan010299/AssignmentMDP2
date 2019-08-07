@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+import 'package:future_weather/screen/JSONWeather.dart';
 
-class MyApp extends StatefulWidget {
-  
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+void main() => runApp(
+  MultiProvider(
+        providers: [
+          ChangeNotifierProvider(builder: (context) => MyJSONWeather()),
+        ],
+         child :MyApp(),
+        ),
+ );
 
-class _MyAppState extends State<MyApp> {
+ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      itemBuilder: (context, position) {
-        return MyFirstPage();
-       },
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.black),
+      home: MyFirstPage(),
     );
   }
-  
-}
+
+ }
+
 
 class MyFirstPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+
     return Scaffold
     (
       appBar:AppBar
