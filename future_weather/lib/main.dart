@@ -17,7 +17,7 @@ void main() => runApp(
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.black),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: MyFirstPage(),
     );
   }
@@ -35,26 +35,34 @@ class MyFirstPage extends StatelessWidget{
       (
         title: Text("Future Weather"),
       ),
-      body: Column
+      body: Container
       (
-        mainAxisAlignment: MainAxisAlignment.center,
+        child : ListView(
+        scrollDirection: Axis.vertical,
         children: <Widget>[
           Expanded
           (
-            flex: 4, 
-            child: null,
+            flex: 4,
+            child : Container(
+            child: Placeholder(),
+            ),
           ),
           Expanded
           (
             flex: 4,
-            child:null,
+            child: Container(
+            child : Placeholder(),
+            ),
           ),
           Expanded
           (
             flex: 2,
-            child:null,
+            child : Container(
+            child : Placeholder(),
+            ),
           ),
         ],
+      ),
       ),
     );
   }
