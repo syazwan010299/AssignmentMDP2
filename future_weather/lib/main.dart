@@ -8,16 +8,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       //debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primarySwatch: Colors.lightBlue,
+        accentColor: Colors.lightBlue[600],
+      ),
       home: MyWeatherApp(),
     );
   }
 }
 
-class MyWeatherApp extends StatelessWidget{
+class MyWeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Placeholder();
   }
-
 }
