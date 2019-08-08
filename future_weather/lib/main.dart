@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:future_weather/screens/home_layout.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,6 +21,20 @@ class MyApp extends StatelessWidget {
 class MyWeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Kuala Lumpur'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {},
+          ),
+        ],
+      ),
+      body: 
+        MyWeatherHome(),
+        
+    );
   }
 }
