@@ -35,7 +35,7 @@ class MyFirstPage extends StatelessWidget{
     var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
 
     if (apixu.forecast == null){
-      current = Text("No Place identified");
+      current = Text("No Place identified ");
     }else{
       current = Column(
         children: <Widget>[
