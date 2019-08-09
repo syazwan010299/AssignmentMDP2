@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:future_weather/screens/current_weather.dart';
 import 'package:future_weather/screens/home_layout.dart';
 import 'package:future_weather/screens/location_screen.dart';
 
@@ -35,7 +36,7 @@ class MyWeatherApp extends StatelessWidget {
             }),
         ], 
       ),
-      body: MyWeatherHome(),
+      body: MyCurrentWeather(),
     );
   }
 }
