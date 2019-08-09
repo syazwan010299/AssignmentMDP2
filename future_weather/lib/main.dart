@@ -27,7 +27,7 @@ class MyWeatherApp extends StatelessWidget {
         title: Text('Kuala Lumpur'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.menu, color:Colors.white),
             onPressed: () {},
           ),
         ],
