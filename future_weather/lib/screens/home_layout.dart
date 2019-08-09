@@ -8,7 +8,8 @@ class MyWeatherHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
+    return Container(
+      child: PageView.builder(
       controller: PageController(
         initialPage: 0,
       ),
@@ -18,6 +19,7 @@ class MyWeatherHome extends StatelessWidget {
         return _buildPages();
       },
       physics: BouncingScrollPhysics(),
+      ),
     );
   }
 }
