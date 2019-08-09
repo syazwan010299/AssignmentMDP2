@@ -55,7 +55,7 @@ class APIXUForecast{
       );
     }
     catch(g){
-      return null;
+      return null;//return null if JSON String is invalid
     }
   }//end of the factory
 
@@ -74,8 +74,8 @@ class MyJSONWeather extends ChangeNotifier{
   }
 
   APIXUForecast parseJsonForecast(String jsonString){
-    var locate = jsonDecode(jsonString);
-    return APIXUForecast.fromJson(locate);
+    var map = jsonDecode(jsonString);
+    return APIXUForecast.fromJson(map);
   }
 
   fetch() async{
