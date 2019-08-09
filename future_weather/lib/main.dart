@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:future_weather/screens/home_layout.dart';
 import 'package:future_weather/screens/location_screen.dart';
 
 void main() => runApp(MyApp());
@@ -23,7 +24,8 @@ class MyWeatherApp extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text("Kuala Lumpur"),
-        leading: IconButton(
+        actions: <Widget>[
+          IconButton(
             icon: Icon(Icons.menu, color: Colors.white),
             onPressed: () {
               Navigator.push(
@@ -31,7 +33,9 @@ class MyWeatherApp extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => MyLocationWeather()),
               );
             }),
+        ], 
       ),
+      body: MyWeatherHome(),
     );
   }
 }
