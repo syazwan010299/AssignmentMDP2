@@ -10,8 +10,8 @@ class MyCurrentWeather extends StatelessWidget {
         children: <Widget>[
           _buildCurrentTemp(),
           _buildCurrentTime(),
-          _buildSunTime(),
-          _buildMoonTime(),
+          _buildRiseTime(),
+          _buildSetTime(),
           _buildFirstIconRow(),
           _buildSecondIconRow()
         ],
@@ -89,7 +89,7 @@ Widget _buildCurrentTime() {
   );
 }
 
-Widget _buildSunTime() {
+Widget _buildRiseTime() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
@@ -105,7 +105,7 @@ Widget _buildSunTime() {
   );
 }
 
-Widget _buildMoonTime() {
+Widget _buildSetTime() {
   //OPTIONAL
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,

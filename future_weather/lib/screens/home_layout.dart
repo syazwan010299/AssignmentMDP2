@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
+/*
+ * UNNECESSARY FOR NOW, WILL COME BACK AND 
+ * TRY AGAIN AS REFINEMENT IF THERE'S TIME
+ * OTHERWISE, DELETE WHEN COMPLETE
+ */
+
+
+
 class MyWeatherHome extends StatelessWidget {
   static const pages = 5;
   final pageIndexNotifier = ValueNotifier<int>(0);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:future_weather/screens/current_weather.dart';
-import 'package:future_weather/screens/home_layout.dart';
 import 'package:future_weather/screens/location_screen.dart';
 
 void main() => runApp(MyApp());
