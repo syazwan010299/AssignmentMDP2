@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:future_weather/screens/forecast_layout.dart';
 
 class MyCurrentWeather extends StatelessWidget {
@@ -168,6 +170,7 @@ Widget _buildFirstIconRow() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Feels like: '),
+            Icon(FontAwesomeIcons.thermometerThreeQuarters),
             Text('36'),
           ],
         ),
@@ -178,6 +181,7 @@ Widget _buildFirstIconRow() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Humidity: '),
+            Icon(FontAwesomeIcons.tint),
             Text('69%'),
           ],
         ),
@@ -188,6 +192,7 @@ Widget _buildFirstIconRow() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Visibility: '),
+            Icon(FontAwesomeIcons.eye),
             Text('8.0km'),
           ],
         ),
@@ -207,6 +212,7 @@ Widget _buildSecondIconRow() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Wind: '),
+            Icon(FontAwesomeIcons.wind),
             Text('36km/h'),
           ],
         ),
@@ -217,6 +223,7 @@ Widget _buildSecondIconRow() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('UV: '),
+            Icon(Icons.wb_sunny),
             Text('8.3'),
           ],
         ),
@@ -227,6 +234,7 @@ Widget _buildSecondIconRow() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Pressure: '),
+            Icon(FontAwesomeIcons.tachometerAlt),
             Text('1010.0mb'),
           ],
         ),
