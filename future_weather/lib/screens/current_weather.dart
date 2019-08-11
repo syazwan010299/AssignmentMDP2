@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:future_weather/screens/forecast_layout.dart';
 
 class MyCurrentWeather extends StatelessWidget {
   @override
@@ -16,17 +17,51 @@ class MyCurrentWeather extends StatelessWidget {
           _buildSecondIconRow()
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blueAccent[700],
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.refresh, color: Colors.white),
-            title: Text('Refresh', style: TextStyle(color: Colors.white)),
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: RaisedButton(
+                  onPressed: () {},
+                  color: Colors.blueAccent[700],
+                  textColor: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(Icons.refresh),
+                      Text('Refresh'),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: RaisedButton(
+                  color: Colors.blueAccent[700],
+                  textColor: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(Icons.show_chart),
+                      Text('Forecast'),
+                    ],
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MyForecastWeather()),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart, color: Colors.white),
-            title: Text('Forecast', style: TextStyle(color: Colors.white)),
-          )
         ],
       ),
     );
