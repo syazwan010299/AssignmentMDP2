@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//TO BE CONTINUED AND REFINED
+
 class MyForecastWeather extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
