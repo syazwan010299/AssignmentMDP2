@@ -13,8 +13,11 @@ class MyCurrentWeather extends StatelessWidget {
         children: <Widget>[
           _buildCurrentTemp(),
           _buildCurrentTime(),
+          Divider(),
           _buildRiseTime(),
+          Divider(),
           _buildSetTime(),
+          Divider(),
           _buildFirstIconRow(),
           _buildSecondIconRow()
         ],
@@ -101,7 +104,7 @@ Widget _buildCurrentTime() {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(5.0),
         child: Text('2019-08-09 11:57'), //JSON LOCAL TIME
       ),
       Row(
