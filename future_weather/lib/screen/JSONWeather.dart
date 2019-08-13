@@ -10,7 +10,7 @@ class APIXUForecast{
   final String currentConditionText;
   final double windSpeed;
   final double pressure;
-  final double humidity;
+  final int humidity;
   final double visibility;
   final double uvIndex;
 
