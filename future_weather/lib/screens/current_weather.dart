@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
-import 'package:future_weather/screens/forecast_layout.dart';
+import 'JSONWeather.dart';
 
 class MyCurrentWeather extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       body: ListView(
         scrollDirection: Axis.vertical,
@@ -27,48 +31,25 @@ class MyCurrentWeather extends StatelessWidget {
       ),
       bottomNavigationBar: MaterialButton(
         color: Colors.blue[400],
-        onPressed: (){},
-        child:SizedBox(
-          width:double.infinity,
+        onPressed: () {},
+        child: SizedBox(
+          width: double.infinity,
           height: 50.0,
-          child:Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(Icons.refresh, color: Colors.white,),
-              Text('Refresh', style: TextStyle(color: Colors.white),),
+              Icon(
+                Icons.refresh,
+                color: Colors.white,
+              ),
+              Text(
+                'Refresh',
+                style: TextStyle(color: Colors.white),
+              ),
             ],
           ),
         ),
       ),
-      // Container(
-      //   color: Colors.blueAccent[700],
-      //   child: Row(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       Row(
-      //         mainAxisAlignment: MainAxisAlignment.end,
-      //         crossAxisAlignment: CrossAxisAlignment.center,
-      //         children: <Widget>[
-      //           Padding(
-      //             padding: EdgeInsets.all(10.0),
-      //             child: RaisedButton(
-      //               onPressed: () {},
-      //               color: Colors.blueAccent[700],
-      //               textColor: Colors.white,
-      //               child: Row(
-      //                 mainAxisAlignment: MainAxisAlignment.center,
-      //                 children: <Widget>[
-      //                   Icon(Icons.refresh),
-      //                   Text('Refresh'),
-      //                 ],
-      //               ),
-      //             ),
-      //           ),
-      //         ],
-      //       ),
-      //     ],
-      //   ),
-      // ),
     );
   }
 }
