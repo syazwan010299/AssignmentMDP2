@@ -5,15 +5,15 @@ import 'package:provider/provider.dart';
 import 'package:future_weather/screen/JSONWeather.dart';
 
 void main() => runApp(
-  MultiProvider(
+      MultiProvider(
         providers: [
           ChangeNotifierProvider(builder: (context) => MyJSONWeather()),
         ],
-         child :MyApp(),
-        ),
- );
+        child: MyApp(),
+      ),
+    );
 
- class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,11 +21,9 @@ void main() => runApp(
       home: MyFirstPage(),
     );
   }
+}
 
- }
-
-
-class MyFirstPage extends StatelessWidget{
+class MyFirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget current;
@@ -34,16 +32,24 @@ class MyFirstPage extends StatelessWidget{
     var apixu = Provider.of<MyJSONWeather>(context);
     var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
 
-    if (apixu.forecast == null){
+    if (apixu.forecast == null) {
       current = Text("No Place identified ");
-    }else{
+    } else {
       current = Column(
         children: <Widget>[
           Text('Location : ' + apixu.forecast.locationName),
           Text('Current Last Updated : ' + apixu.forecast.currentLastUpdated),
-          Text('Current Temperature : ${apixu.forecast.currentTemp.toStringAsFixed(1)} c'),
-          Text('Current Condition Text : ' + apixu.forecast.currentConditionText),
-          Image.network('Http ' + apixu.forecast.currentConditionIcon),
+          Text(
+              'Current Temperature : ${apixu.forecast.currentTemp.toStringAsFixed(1)} c'),
+          Text('Current Condition Text : ' +
+              apixu.forecast.currentConditionText),
+          Padding(
+            padding: EdgeInsets.only(left: 50, top: 40),
+            child: Image(
+              image: NetworkImage('http:' + apixu.forecast.currentConditionIcon),
+            ),
+          ),
+
           Text('Wind Speed : ${apixu.forecast.windSpeed.toStringAsFixed(1)}'),
           Text('Pressure : ${apixu.forecast.pressure.toStringAsFixed(1)}'),
           Text('Humidity : ${apixu.forecast.humidity.toStringAsFixed(1)}'),
@@ -57,7 +63,7 @@ class MyFirstPage extends StatelessWidget{
       );
     }
 
-     return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text("Weather"),
       ),
@@ -78,7 +84,7 @@ class MyFirstPage extends StatelessWidget{
     );
   }
 }
-    /*
+/*
     return Scaffold
     (
       appBar:AppBar
@@ -119,4 +125,3 @@ class MyFirstPage extends StatelessWidget{
 
 }
 */
-
