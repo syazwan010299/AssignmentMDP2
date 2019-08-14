@@ -19,6 +19,7 @@ class MyCurrentWeather extends StatelessWidget {
           _buildSetTime(),
           Divider(),
           _buildFirstIconRow(),
+          Divider(),
           _buildSecondIconRow()
         ],
       ),
@@ -76,7 +77,7 @@ class MyCurrentWeather extends StatelessWidget {
 Widget _buildCurrentTemp() {
   return Container(
     child: SizedBox(
-      height: 200.0,
+      height: 300.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
