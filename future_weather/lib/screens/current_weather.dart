@@ -14,6 +14,8 @@ class MyCurrentWeather extends StatelessWidget {
           _buildCurrentTemp(),
           _buildCurrentTime(),
           Divider(),
+          _buildForecast(),
+          Divider(),
           _buildRiseTime(),
           Divider(),
           _buildSetTime(),
@@ -23,53 +25,50 @@ class MyCurrentWeather extends StatelessWidget {
           _buildSecondIconRow()
         ],
       ),
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      bottomNavigationBar: MaterialButton(
+        color: Colors.blue[400],
+        onPressed: (){},
+        child:SizedBox(
+          width:double.infinity,
+          height: 50.0,
+          child:Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: RaisedButton(
-                  onPressed: () {},
-                  color: Colors.blueAccent[700],
-                  textColor: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(Icons.refresh),
-                      Text('Refresh'),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: RaisedButton(
-                  color: Colors.blueAccent[700],
-                  textColor: Colors.white,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(Icons.show_chart),
-                      Text('Forecast'),
-                    ],
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MyForecastWeather()),
-                    );
-                  },
-                ),
-              ),
+              Icon(Icons.refresh, color: Colors.white,),
+              Text('Refresh', style: TextStyle(color: Colors.white),),
             ],
           ),
-        ],
+        ),
       ),
+      // Container(
+      //   color: Colors.blueAccent[700],
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       Row(
+      //         mainAxisAlignment: MainAxisAlignment.end,
+      //         crossAxisAlignment: CrossAxisAlignment.center,
+      //         children: <Widget>[
+      //           Padding(
+      //             padding: EdgeInsets.all(10.0),
+      //             child: RaisedButton(
+      //               onPressed: () {},
+      //               color: Colors.blueAccent[700],
+      //               textColor: Colors.white,
+      //               child: Row(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: <Widget>[
+      //                   Icon(Icons.refresh),
+      //                   Text('Refresh'),
+      //                 ],
+      //               ),
+      //             ),
+      //           ),
+      //         ],
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }
@@ -244,5 +243,32 @@ Widget _buildSecondIconRow() {
         ),
       ),
     ],
+  );
+}
+
+Widget _buildForecast() {
+  return Padding(
+    padding: EdgeInsets.all(8.0),
+    child: Container(
+      height: 150.0,
+      child: ListView.builder(
+        itemCount: 7,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('DD-MM-YYYY', style: TextStyle(color: Colors.black)),
+                Icon(Icons.cloud, color: Colors.grey),
+                Text('Max Temp: 32'),
+                Text('Min Temp: 26'),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
   );
 }
