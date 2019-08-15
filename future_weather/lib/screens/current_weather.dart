@@ -4,17 +4,29 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'JSONWeather.dart';
+import 'location_screen.dart';
 
 class MyCurrentWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget current;
-    Widget forecast;
-
     var apixu = Provider.of<MyJSONWeather>(context);
     var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
 
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(apixu.forecast.locationName),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.menu, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyLocationWeather()),
+                );
+              }),
+        ],
+      ),
       backgroundColor: Colors.blue[400],
       body: Container(
         decoration: BoxDecoration(
@@ -57,14 +69,14 @@ class MyCurrentWeather extends StatelessWidget {
                           apixu.forecast.currentConditionText,
                           style: TextStyle(fontSize: 15),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 8.0),
-                          child: Image(
-                            image: NetworkImage(
-                                'http:' + apixu.forecast.currentConditionIcon),
-                          ),
-                        ),
                       ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 8.0),
+                      child: Image(
+                        image: NetworkImage(
+                            'http:' + apixu.forecast.currentConditionIcon),
+                      ),
                     ),
                   ],
                 ),
@@ -132,7 +144,6 @@ class MyCurrentWeather extends StatelessWidget {
                                   image: NetworkImage('http:' +
                                       apixu.forecast.forecastDay2ConditionIcon),
                                 ),
-                                Text(apixu.forecast.forecastDay2ConditionText),
                                 Text('${apixu.forecast.forecastDay2MaxTempC}° / ' +
                                     '${apixu.forecast.forecastDay2MinTempC}°'),
                               ],
@@ -151,7 +162,6 @@ class MyCurrentWeather extends StatelessWidget {
                                   image: NetworkImage('http:' +
                                       apixu.forecast.forecastDay3ConditionIcon),
                                 ),
-                                Text(apixu.forecast.forecastDay3ConditionText),
                                 Text('${apixu.forecast.forecastDay3MaxTempC}° / ' +
                                     '${apixu.forecast.forecastDay3MinTempC}°'),
                               ],
@@ -170,7 +180,6 @@ class MyCurrentWeather extends StatelessWidget {
                                   image: NetworkImage('http:' +
                                       apixu.forecast.forecastDay4ConditionIcon),
                                 ),
-                                Text(apixu.forecast.forecastDay4ConditionText),
                                 Text('${apixu.forecast.forecastDay4MaxTempC}° / ' +
                                     '${apixu.forecast.forecastDay4MinTempC}°'),
                               ],
@@ -189,7 +198,6 @@ class MyCurrentWeather extends StatelessWidget {
                                   image: NetworkImage('http:' +
                                       apixu.forecast.forecastDay5ConditionIcon),
                                 ),
-                                Text(apixu.forecast.forecastDay5ConditionText),
                                 Text('${apixu.forecast.forecastDay5MaxTempC}° / ' +
                                     '${apixu.forecast.forecastDay5MinTempC}°'),
                               ],
@@ -208,7 +216,6 @@ class MyCurrentWeather extends StatelessWidget {
                                   image: NetworkImage('http:' +
                                       apixu.forecast.forecastDay6ConditionIcon),
                                 ),
-                                Text(apixu.forecast.forecastDay6ConditionText),
                                 Text('${apixu.forecast.forecastDay6MaxTempC}° / ' +
                                     '${apixu.forecast.forecastDay6MinTempC}°'),
                               ],

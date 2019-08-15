@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'about_screen.dart';
 
 class MyLocationWeather extends StatefulWidget {
@@ -8,12 +7,7 @@ class MyLocationWeather extends StatefulWidget {
 }
 
 class _MyLocationWeatherState extends State<MyLocationWeather> {
-  String _inputLocation = "";
-
-  TextEditingController _textFieldController = TextEditingController();
-  _onSubmitted(String location) {
-    setState(() => _inputLocation = location);
-  }
+  var _textFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +30,22 @@ class _MyLocationWeatherState extends State<MyLocationWeather> {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 50.0),
-            child: TextField(
+            child: TextFormField(
               controller: _textFieldController,
-              onSubmitted: _onSubmitted,
               decoration: InputDecoration(
                 hintText: 'Enter another location',
               ),
+              validator: (input) {
+                if (input.isEmpty) {
+                  return 'Please enter a city';
+                }
+                return null;
+              },
             ),
+          ),
+          RaisedButton(
+            child: Text('SEARCH'),
+            onPressed: () {},
           ),
         ],
       ),

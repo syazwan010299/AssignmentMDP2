@@ -36,20 +36,7 @@ class MyWeatherApp extends StatelessWidget {
     var apixu = Provider.of<MyJSONWeather>(context);
     var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(apixu.forecast.locationName),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.menu, color: Colors.white),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyLocationWeather()),
-                );
-              }),
-        ],
-      ),
+      
       body: MyCurrentWeather(),
     );
   }

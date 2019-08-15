@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 
-class APIXUForecast{
+import 'location_screen.dart';
+
+class APIXUForecast {
   final String locationName;
   final String currentLastUpdated;
   final double currentTemp;
@@ -54,7 +56,7 @@ class APIXUForecast{
   final String forecastAstro2MoonRise;
   final String forecastAstro2MoonSet;
 
- //Forecast 3rd Day
+  //Forecast 3rd Day
   final String forecastDate3;
   final double forecastDay3MaxTempC;
   final double forecastDay3MinTempC;
@@ -122,8 +124,8 @@ class APIXUForecast{
   final String forecastAstro6MoonRise;
   final String forecastAstro6MoonSet;
 
-  APIXUForecast(
-    {@required this.locationName,
+  APIXUForecast({
+    @required this.locationName,
     @required this.currentLastUpdated,
     @required this.currentTemp,
     @required this.currentConditionIcon,
@@ -142,120 +144,120 @@ class APIXUForecast{
     //required for the 1st day
     @required this.forecastDate,
     @required this.forecastDayMaxTempC,
-  @required this.forecastDayMinTempC,
-  @required this.forecastDayAvgTempC,
-  @required this.forecastDayMaxWindKph,
-  @required this.forecastDayTotalPrecipitationMM,
-  @required this.forecastDayAvgVisKm,
-  @required this.forecastDayAvgHum,
-  @required this.forecastDayConditionText,
-  @required this.forecastDayConditionIcon,
-  @required this.forecastDayUV,
-  @required this.forecastAstroSunrise,
-  @required this.forecastAstroSunset,
-  @required this.forecastAstroMoonRise,
-  @required this.forecastAstroMoonSet,
-    
-  //Forecast 2nd Day
-  @required this.forecastDate2,
-  @required this.forecastDay2MaxTempC,
-  @required this.forecastDay2MinTempC,
-  @required this.forecastDay2AvgTempC,
-  @required this.forecastDay2MaxWindKph,
-  @required this.forecastDay2TotalPrecipitationMM,
-  @required this.forecastDay2AvgVisKm,
-  @required this.forecastDay2AvgHum,
-  @required this.forecastDay2ConditionText,
-  @required this.forecastDay2ConditionIcon,
-  @required this.forecastDay2UV,
-  @required this.forecastAstro2Sunrise,
-  @required this.forecastAstro2Sunset,
-  @required this.forecastAstro2MoonRise,
-  @required this.forecastAstro2MoonSet,
+    @required this.forecastDayMinTempC,
+    @required this.forecastDayAvgTempC,
+    @required this.forecastDayMaxWindKph,
+    @required this.forecastDayTotalPrecipitationMM,
+    @required this.forecastDayAvgVisKm,
+    @required this.forecastDayAvgHum,
+    @required this.forecastDayConditionText,
+    @required this.forecastDayConditionIcon,
+    @required this.forecastDayUV,
+    @required this.forecastAstroSunrise,
+    @required this.forecastAstroSunset,
+    @required this.forecastAstroMoonRise,
+    @required this.forecastAstroMoonSet,
 
-  //Forecast 3rd Day
-  @required this.forecastDate3,
-  @required this.forecastDay3MaxTempC,
-  @required this.forecastDay3MinTempC,
-  @required this.forecastDay3AvgTempC,
-  @required this.forecastDay3MaxWindKph,
-  @required this.forecastDay3TotalPrecipitationMM,
-  @required this.forecastDay3AvgVisKm,
-  @required this.forecastDay3AvgHum,
-  @required this.forecastDay3ConditionText,
-  @required this.forecastDay3ConditionIcon,
-  @required this.forecastDay3UV,
-  @required this.forecastAstro3Sunrise,
-  @required this.forecastAstro3Sunset,
-  @required this.forecastAstro3MoonRise,
-  @required this.forecastAstro3MoonSet,
+    //Forecast 2nd Day
+    @required this.forecastDate2,
+    @required this.forecastDay2MaxTempC,
+    @required this.forecastDay2MinTempC,
+    @required this.forecastDay2AvgTempC,
+    @required this.forecastDay2MaxWindKph,
+    @required this.forecastDay2TotalPrecipitationMM,
+    @required this.forecastDay2AvgVisKm,
+    @required this.forecastDay2AvgHum,
+    @required this.forecastDay2ConditionText,
+    @required this.forecastDay2ConditionIcon,
+    @required this.forecastDay2UV,
+    @required this.forecastAstro2Sunrise,
+    @required this.forecastAstro2Sunset,
+    @required this.forecastAstro2MoonRise,
+    @required this.forecastAstro2MoonSet,
 
-  //Forecast 4rd Day
-  @required this.forecastDate4,
-  @required this.forecastDay4MaxTempC,
-  @required this.forecastDay4MinTempC,
-  @required this.forecastDay4AvgTempC,
-  @required this.forecastDay4MaxWindKph,
-  @required this.forecastDay4TotalPrecipitationMM,
-  @required this.forecastDay4AvgVisKm,
-  @required this.forecastDay4AvgHum,
-  @required this.forecastDay4ConditionText,
-  @required this.forecastDay4ConditionIcon,
-  @required this.forecastDay4UV,
-  @required this.forecastAstro4Sunrise,
-  @required this.forecastAstro4Sunset,
-  @required this.forecastAstro4MoonRise,
-  @required this.forecastAstro4MoonSet,
+    //Forecast 3rd Day
+    @required this.forecastDate3,
+    @required this.forecastDay3MaxTempC,
+    @required this.forecastDay3MinTempC,
+    @required this.forecastDay3AvgTempC,
+    @required this.forecastDay3MaxWindKph,
+    @required this.forecastDay3TotalPrecipitationMM,
+    @required this.forecastDay3AvgVisKm,
+    @required this.forecastDay3AvgHum,
+    @required this.forecastDay3ConditionText,
+    @required this.forecastDay3ConditionIcon,
+    @required this.forecastDay3UV,
+    @required this.forecastAstro3Sunrise,
+    @required this.forecastAstro3Sunset,
+    @required this.forecastAstro3MoonRise,
+    @required this.forecastAstro3MoonSet,
 
-  //Forecast 5th Day
-  @required this.forecastDate5,
-  @required this.forecastDay5MaxTempC,
-  @required this.forecastDay5MinTempC,
-  @required this.forecastDay5AvgTempC,
-  @required this.forecastDay5MaxWindKph,
-  @required this.forecastDay5TotalPrecipitationMM,
-  @required this.forecastDay5AvgVisKm,
-  @required this.forecastDay5AvgHum,
-  @required this.forecastDay5ConditionText,
-  @required this.forecastDay5ConditionIcon,
-  @required this.forecastDay5UV,
-  @required this.forecastAstro5Sunrise,
-  @required this.forecastAstro5Sunset,
-  @required this.forecastAstro5MoonRise,
-  @required this.forecastAstro5MoonSet,
+    //Forecast 4rd Day
+    @required this.forecastDate4,
+    @required this.forecastDay4MaxTempC,
+    @required this.forecastDay4MinTempC,
+    @required this.forecastDay4AvgTempC,
+    @required this.forecastDay4MaxWindKph,
+    @required this.forecastDay4TotalPrecipitationMM,
+    @required this.forecastDay4AvgVisKm,
+    @required this.forecastDay4AvgHum,
+    @required this.forecastDay4ConditionText,
+    @required this.forecastDay4ConditionIcon,
+    @required this.forecastDay4UV,
+    @required this.forecastAstro4Sunrise,
+    @required this.forecastAstro4Sunset,
+    @required this.forecastAstro4MoonRise,
+    @required this.forecastAstro4MoonSet,
 
-  //Forecast 6th Day
-  @required this.forecastDate6,
-  @required this.forecastDay6MaxTempC,
-  @required this.forecastDay6MinTempC,
-  @required this.forecastDay6AvgTempC,
-  @required this.forecastDay6MaxWindKph,
-  @required this.forecastDay6TotalPrecipitationMM,
-  @required this.forecastDay6AvgVisKm,
-  @required this.forecastDay6AvgHum,
-  @required this.forecastDay6ConditionText,
-  @required this.forecastDay6ConditionIcon,
-  @required this.forecastDay6UV,
-  @required this.forecastAstro6Sunrise,
-  @required this.forecastAstro6Sunset,
-  @required this.forecastAstro6MoonRise,
-  @required this.forecastAstro6MoonSet,
+    //Forecast 5th Day
+    @required this.forecastDate5,
+    @required this.forecastDay5MaxTempC,
+    @required this.forecastDay5MinTempC,
+    @required this.forecastDay5AvgTempC,
+    @required this.forecastDay5MaxWindKph,
+    @required this.forecastDay5TotalPrecipitationMM,
+    @required this.forecastDay5AvgVisKm,
+    @required this.forecastDay5AvgHum,
+    @required this.forecastDay5ConditionText,
+    @required this.forecastDay5ConditionIcon,
+    @required this.forecastDay5UV,
+    @required this.forecastAstro5Sunrise,
+    @required this.forecastAstro5Sunset,
+    @required this.forecastAstro5MoonRise,
+    @required this.forecastAstro5MoonSet,
 
-    }
-  );
+    //Forecast 6th Day
+    @required this.forecastDate6,
+    @required this.forecastDay6MaxTempC,
+    @required this.forecastDay6MinTempC,
+    @required this.forecastDay6AvgTempC,
+    @required this.forecastDay6MaxWindKph,
+    @required this.forecastDay6TotalPrecipitationMM,
+    @required this.forecastDay6AvgVisKm,
+    @required this.forecastDay6AvgHum,
+    @required this.forecastDay6ConditionText,
+    @required this.forecastDay6ConditionIcon,
+    @required this.forecastDay6UV,
+    @required this.forecastAstro6Sunrise,
+    @required this.forecastAstro6Sunset,
+    @required this.forecastAstro6MoonRise,
+    @required this.forecastAstro6MoonSet,
+  });
 
-  factory APIXUForecast.fromJson(Map<String, dynamic> json){
-    try{
+  factory APIXUForecast.fromJson(Map<String, dynamic> json) {
+    try {
       var currents = json['current'];
       var forecast = json['forecast']['forecastday'];
-      var condition = currents['condition'];//fetch the value condition under current
+      var condition =
+          currents['condition']; //fetch the value condition under current
       return APIXUForecast(
         locationName: json['location']['name'],
-        currentLastUpdated:currents['last_updated'],
+        currentLastUpdated: currents['last_updated'],
         currentTemp: currents['temp_c'],
         currentConditionIcon: currents['condition']['icon'],
-        currentConditionText: currents['condition']['text'],//fetch the text and icon under condition
-        windSpeed:currents['wind_kph'],
+        currentConditionText: currents['condition']
+            ['text'], //fetch the text and icon under condition
+        windSpeed: currents['wind_kph'],
         pressure: currents['pressure_mb'],
         humidity: currents['humidity'],
         feelLikeC: currents['feelslike_c'],
@@ -363,39 +365,37 @@ class APIXUForecast{
         forecastAstro6Sunset: forecast[5]['astro']['sunset'],
         forecastAstro6MoonRise: forecast[5]['astro']['moonrise'],
         forecastAstro6MoonSet: forecast[5]['astro']['moonset'],
-
       );
+    } catch (e) {
+      return null; //return null if JSON String is invalid
     }
-    catch(e){
-      return null;//return null if JSON String is invalid
-    }
-  }//end of the factory
+  } //end of the factory
 
 }
 
 
 
-class MyJSONWeather extends ChangeNotifier{
+class MyJSONWeather extends ChangeNotifier {
   //the API Key for the JSON //use it wisely
   static const APIKey = "404d704a8c634a97a0b105010192407";
+
   APIXUForecast _forecast;
   get forecast => _forecast;
 
-  MyJSONWeather(){
-    fetch();//fetch intial data when the model created
+  MyJSONWeather() {
+    fetch(); //fetch intial data when the model created
   }
 
-  APIXUForecast parseJsonForecast(String jsonString){
+  APIXUForecast parseJsonForecast(String jsonString) {
     var map = jsonDecode(jsonString);
     return APIXUForecast.fromJson(map);
   }
 
-  fetch() async{
+  fetch() async {
     http.Response response = await http.Client().get(
-      'http://api.apixu.com/v1/forecast.json?key=$APIKey&q=Kuala+Lumpur&days=6');//get the Json value  
-      //print the response body
-      _forecast = parseJsonForecast(response.body);
-      notifyListeners();
-
+        'http://api.apixu.com/v1/forecast.json?key=$APIKey&q=Kuala+Lumpur&days=6'); //get the Json value
+    //print the response body
+    _forecast = parseJsonForecast(response.body);
+    notifyListeners();
   }
 }
