@@ -17,25 +17,29 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class MyWeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         centerTitle: true,
         title: Text("Kuala Lumpur"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.menu, color: Colors.white),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyLocationWeather()),
-              );
-            }),
-        ], 
+              icon: Icon(Icons.menu, color: Colors.white),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyLocationWeather()),
+                );
+              }),
+        ],
       ),
-      body: MyCurrentWeather(),
+      body: 
+        MyCurrentWeather(),
+      
     );
   }
 }
