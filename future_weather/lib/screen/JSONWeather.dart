@@ -11,10 +11,11 @@ class APIXUForecast{
   final double windSpeed;
   final double pressure;
   final int humidity;
+  final double feelLikeC;
   final double visibility;
   final double uvIndex;
 
-  // final String sunset;
+  //final String sunset;
   // final String sunrise;
   // final String moonRise;
   // final String moonSet;
@@ -28,9 +29,10 @@ class APIXUForecast{
     @required this.windSpeed,
     @required this.pressure,
     @required this.humidity,
+    @required this.feelLikeC,
     @required this.visibility,
     @required this.uvIndex,
-    // @required this.sunset,
+    //@required this.sunset,
     // @required this.sunrise,
     // @required this.moonRise,
     // @required this.moonSet
@@ -40,6 +42,7 @@ class APIXUForecast{
   factory APIXUForecast.fromJson(Map<String, dynamic> json){
     try{
       var currents = json['current'];
+      var date = json['forecast']['forecastday']['date']['2019-08--14'];
       var condition = currents['condition'];//fetch the value condition under current
       return APIXUForecast(
         locationName: json['location']['name'],
@@ -50,12 +53,13 @@ class APIXUForecast{
         windSpeed:currents['wind_kph'],
         pressure: currents['pressure_mb'],
         humidity: currents['humidity'],
+        feelLikeC: currents['feelslike_c'],
         visibility: currents['vis_km'],
         uvIndex: currents['uv'],
-       // sunset: json['astro']['sunset'],
-        //sunrise: json['astro']['sunrise'],
-        //moonRise: json['astro']['moonrise'],
-        //moonSet: json['astro']['moonset'],
+        //sunset: date['astro']['sunset'],
+        // sunrise: json['forecast']['forecastday']['astro']['sunrise'],
+        // moonRise: json['forecast']['forecastday']['astro']['moonrise'],
+        // moonSet: json['forecast ']['forecastday']['astro']['moonset'],
       );
     }
     catch(e){
