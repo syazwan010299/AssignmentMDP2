@@ -115,27 +115,108 @@ class MyCurrentWeather extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: Container(
                 height: 150.0,
-                child: ListView.builder(
-                  itemCount: 6,
+                child: ListView(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text('DD-MM-YYYY',
-                              style: TextStyle(color: Colors.black)),
-                          Icon(Icons.cloud, color: Colors.grey),
-                          Text('Max Temp: 32'),
-                          Text('Min Temp: 26'),
-                        ],
-                      ),
+                  children: [
+                    Row(
+                      children: <Widget>[
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(apixu.forecast.forecastDate2,
+                                    style: TextStyle(color: Colors.black)),
+                                Image(
+                                  image: NetworkImage('http:' +
+                                      apixu.forecast.forecastDay2ConditionIcon),
+                                ),
+                                Text(apixu.forecast.forecastDay2ConditionText),
+                                Text('${apixu.forecast.forecastDay2MaxTempC}° / '+ '${apixu.forecast.forecastDay2MinTempC}°'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(apixu.forecast.forecastDate3,
+                                    style: TextStyle(color: Colors.black)),
+                                Image(
+                                  image: NetworkImage('http:' +
+                                      apixu.forecast.forecastDay3ConditionIcon),
+                                ),
+                                Text(apixu.forecast.forecastDay3ConditionText),
+                                Text('${apixu.forecast.forecastDay3MaxTempC}° / '+ '${apixu.forecast.forecastDay3MinTempC}°'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(apixu.forecast.forecastDate4,
+                                    style: TextStyle(color: Colors.black)),
+                                Image(
+                                  image: NetworkImage('http:' +
+                                      apixu.forecast.forecastDay4ConditionIcon),
+                                ),
+                                Text(apixu.forecast.forecastDay4ConditionText),
+                                Text('${apixu.forecast.forecastDay4MaxTempC}° / '+ '${apixu.forecast.forecastDay4MinTempC}°'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(apixu.forecast.forecastDate5,
+                                    style: TextStyle(color: Colors.black)),
+                                Image(
+                                  image: NetworkImage('http:' +
+                                      apixu.forecast.forecastDay5ConditionIcon),
+                                ),
+                                Text(apixu.forecast.forecastDay5ConditionText),
+                                Text('${apixu.forecast.forecastDay5MaxTempC}° / '+ '${apixu.forecast.forecastDay5MinTempC}°'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(apixu.forecast.forecastDate6,
+                                    style: TextStyle(color: Colors.black)),
+                                Image(
+                                  image: NetworkImage('http:' +
+                                      apixu.forecast.forecastDay6ConditionIcon),
+                                ),
+                                Text(apixu.forecast.forecastDay6ConditionText),
+                                Text('${apixu.forecast.forecastDay6MaxTempC}° / '+ '${apixu.forecast.forecastDay6MinTempC}°'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
+
             Divider(),
 
             //SUNRISE/MOONRISE
@@ -145,14 +226,14 @@ class MyCurrentWeather extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Sunrise: '+ apixu.forecast.forecastAstroSunrise,
+                    'Sunrise: ' + apixu.forecast.forecastAstroSunrise,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Moonrise: '+ apixu.forecast.forecastAstroMoonRise ,
+                    'Moonrise: ' + apixu.forecast.forecastAstroMoonRise,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
@@ -167,14 +248,14 @@ class MyCurrentWeather extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Sunset: '+ apixu.forecast.forecastAstroSunset,
+                    'Sunset: ' + apixu.forecast.forecastAstroSunset,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Moonset: '+ apixu.forecast.forecastAstroMoonSet,
+                    'Moonset: ' + apixu.forecast.forecastAstroMoonSet,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
@@ -238,7 +319,8 @@ class MyCurrentWeather extends StatelessWidget {
                       children: <Widget>[
                         Icon(FontAwesomeIcons.wind),
                         Text('Wind:'),
-                        Text('${apixu.forecast.windSpeed.toStringAsFixed(1)}km/h'),
+                        Text(
+                            '${apixu.forecast.windSpeed.toStringAsFixed(1)}km/h'),
                       ],
                     ),
                   ),
@@ -266,7 +348,8 @@ class MyCurrentWeather extends StatelessWidget {
                       children: <Widget>[
                         Icon(FontAwesomeIcons.tachometerAlt),
                         Text('Pressure:'),
-                        Text('${((apixu.forecast.pressure)* 100).toStringAsFixed(1) } Pa'),
+                        Text(
+                            '${((apixu.forecast.pressure) * 100).toStringAsFixed(1)} Pa'),
                       ],
                     ),
                   ),
