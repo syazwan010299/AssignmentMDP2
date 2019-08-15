@@ -56,10 +56,7 @@ class MyFirstPage extends StatelessWidget {
           Text('Feel like C : ${apixu.forecast.feelLikeC.toStringAsFixed(1)}'),
           Text('Visibility : ${apixu.forecast.visibility.toStringAsFixed(1)}'),
           Text('UV Index : ${apixu.forecast.uvIndex.toStringAsFixed(1)}'),
-          //Text('Sunset : ' + apixu.forecast.sunset),
-          // Text('Sunrise : ' + apixu.forecast.sunrise),
-          // Text('Moonset : ' + apixu.forecast.moonSet),
-          // Text('Moonrise : ' + apixu.forecast.moonRise),
+          
         ],
       );
     }
