@@ -133,7 +133,8 @@ class MyCurrentWeather extends StatelessWidget {
                                       apixu.forecast.forecastDay2ConditionIcon),
                                 ),
                                 Text(apixu.forecast.forecastDay2ConditionText),
-                                Text('${apixu.forecast.forecastDay2MaxTempC}° / '+ '${apixu.forecast.forecastDay2MinTempC}°'),
+                                Text('${apixu.forecast.forecastDay2MaxTempC}° / ' +
+                                    '${apixu.forecast.forecastDay2MinTempC}°'),
                               ],
                             ),
                           ),
@@ -151,7 +152,8 @@ class MyCurrentWeather extends StatelessWidget {
                                       apixu.forecast.forecastDay3ConditionIcon),
                                 ),
                                 Text(apixu.forecast.forecastDay3ConditionText),
-                                Text('${apixu.forecast.forecastDay3MaxTempC}° / '+ '${apixu.forecast.forecastDay3MinTempC}°'),
+                                Text('${apixu.forecast.forecastDay3MaxTempC}° / ' +
+                                    '${apixu.forecast.forecastDay3MinTempC}°'),
                               ],
                             ),
                           ),
@@ -169,7 +171,8 @@ class MyCurrentWeather extends StatelessWidget {
                                       apixu.forecast.forecastDay4ConditionIcon),
                                 ),
                                 Text(apixu.forecast.forecastDay4ConditionText),
-                                Text('${apixu.forecast.forecastDay4MaxTempC}° / '+ '${apixu.forecast.forecastDay4MinTempC}°'),
+                                Text('${apixu.forecast.forecastDay4MaxTempC}° / ' +
+                                    '${apixu.forecast.forecastDay4MinTempC}°'),
                               ],
                             ),
                           ),
@@ -187,7 +190,8 @@ class MyCurrentWeather extends StatelessWidget {
                                       apixu.forecast.forecastDay5ConditionIcon),
                                 ),
                                 Text(apixu.forecast.forecastDay5ConditionText),
-                                Text('${apixu.forecast.forecastDay5MaxTempC}° / '+ '${apixu.forecast.forecastDay5MinTempC}°'),
+                                Text('${apixu.forecast.forecastDay5MaxTempC}° / ' +
+                                    '${apixu.forecast.forecastDay5MinTempC}°'),
                               ],
                             ),
                           ),
@@ -205,7 +209,8 @@ class MyCurrentWeather extends StatelessWidget {
                                       apixu.forecast.forecastDay6ConditionIcon),
                                 ),
                                 Text(apixu.forecast.forecastDay6ConditionText),
-                                Text('${apixu.forecast.forecastDay6MaxTempC}° / '+ '${apixu.forecast.forecastDay6MinTempC}°'),
+                                Text('${apixu.forecast.forecastDay6MaxTempC}° / ' +
+                                    '${apixu.forecast.forecastDay6MinTempC}°'),
                               ],
                             ),
                           ),
