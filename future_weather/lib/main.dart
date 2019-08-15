@@ -30,13 +30,7 @@ class MyApp extends StatelessWidget {
 class MyWeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget current;
-    Widget forecast;
-
-    var apixu = Provider.of<MyJSONWeather>(context);
-    var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
     return Scaffold(
-      
       body: MyCurrentWeather(),
     );
   }
