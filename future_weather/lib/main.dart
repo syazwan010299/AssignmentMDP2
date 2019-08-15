@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:future_weather/screens/JSONWeather.dart';
 import 'package:future_weather/screens/current_weather.dart';
-import 'package:future_weather/screens/location_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(

@@ -379,7 +379,7 @@ class MyJSONWeather extends ChangeNotifier {
   //the API Key for the JSON //use it wisely
   static const APIKey = "404d704a8c634a97a0b105010192407";
 
-  static const location= "Kuala+Lumpur";
+  // static const location= "Kuala+Lumpur";
 
 
   APIXUForecast _forecast;
@@ -396,7 +396,7 @@ class MyJSONWeather extends ChangeNotifier {
 
   fetch() async {
     http.Response response = await http.Client().get(
-        'http://api.apixu.com/v1/forecast.json?key=$APIKey&q=$location&days=6'); //get the Json value
+        'http://api.apixu.com/v1/forecast.json?key=$APIKey&q=Kuala+Lumpur&days=6'); //get the Json value
     //print the response body
     _forecast = parseJsonForecast(response.body);
     notifyListeners();
