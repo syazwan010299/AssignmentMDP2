@@ -8,6 +8,12 @@ import 'JSONWeather.dart';
 class MyCurrentWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Widget current;
+    Widget forecast;
+
+    var apixu = Provider.of<MyJSONWeather>(context);
+    var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
+
     return Scaffold(
       backgroundColor: Colors.blue[400],
       body: Container(
@@ -33,12 +39,12 @@ class MyCurrentWeather extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(left: 25.0),
+                      padding: EdgeInsets.only(left: 10.0),
                       child: Text(
                         //JSON ADDED HERE
-                        '29°',
+                        '${apixu.forecast.currentTemp.toStringAsFixed(1)}°C',
                         style: TextStyle(
-                          fontSize: 100,
+                          fontSize: 75,
                         ),
                       ),
                     ),
@@ -47,18 +53,19 @@ class MyCurrentWeather extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                      //JSON ADDED HERE
-                      'Mostly Cloudy',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8.0),
-                      child: Icon(Icons.cloud),
-                    ),
-                    
+                          //JSON ADDED HERE
+                          apixu.forecast.currentConditionText,
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 8.0),
+                          child: Image(
+                            image: NetworkImage(
+                                'http:' + apixu.forecast.currentConditionIcon),
+                          ),
+                        ),
                       ],
                     ),
-                    
                   ],
                 ),
               ),
@@ -71,7 +78,7 @@ class MyCurrentWeather extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    '2019-08-09 11:57',
+                    apixu.forecast.currentLastUpdated,
                     style: TextStyle(fontSize: 16),
                   ), //JSON LOCAL TIME
                 ),
@@ -84,14 +91,14 @@ class MyCurrentWeather extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.all(10.0),
                           child: Text(
-                            '34°',
+                            '${apixu.forecast.forecastDayMaxTempC}°',
                             style: TextStyle(fontSize: 16),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsets.all(10.0),
                           child: Text(
-                            '29°',
+                            '${apixu.forecast.forecastDayMinTempC}°',
                             style: TextStyle(fontSize: 16),
                           ),
                         ),
@@ -138,14 +145,14 @@ class MyCurrentWeather extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Sunrise: 07:30 AM',
+                    'Sunrise: '+ apixu.forecast.forecastAstroSunrise,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Moonrise: 02:50 PM',
+                    'Moonrise: '+ apixu.forecast.forecastAstroMoonRise ,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
@@ -160,14 +167,14 @@ class MyCurrentWeather extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Sunset:  07:30 PM',
+                    'Sunset: '+ apixu.forecast.forecastAstroSunset,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(5.0),
                   child: Text(
-                    'Moonset: 01:50 AM',
+                    'Moonset: '+ apixu.forecast.forecastAstroMoonSet,
                     style: TextStyle(fontSize: 15),
                   ),
                 ),
@@ -187,7 +194,7 @@ class MyCurrentWeather extends StatelessWidget {
                     children: <Widget>[
                       Icon(FontAwesomeIcons.thermometerThreeQuarters),
                       Text('Feels like:'),
-                      Text('36'),
+                      Text('${apixu.forecast.feelLikeC.toStringAsFixed(1)}°C'),
                     ],
                   ),
                 ),
@@ -198,7 +205,7 @@ class MyCurrentWeather extends StatelessWidget {
                     children: <Widget>[
                       Icon(FontAwesomeIcons.tint),
                       Text('Humidity:'),
-                      Text('69%'),
+                      Text('${apixu.forecast.humidity.toStringAsFixed(1)}'),
                     ],
                   ),
                 ),
@@ -209,7 +216,7 @@ class MyCurrentWeather extends StatelessWidget {
                     children: <Widget>[
                       Icon(FontAwesomeIcons.eye),
                       Text('Visibility:'),
-                      Text('8.0km'),
+                      Text('${apixu.forecast.visibility.toStringAsFixed(1)}'),
                     ],
                   ),
                 ),
@@ -231,7 +238,7 @@ class MyCurrentWeather extends StatelessWidget {
                       children: <Widget>[
                         Icon(FontAwesomeIcons.wind),
                         Text('Wind:'),
-                        Text('36km/h'),
+                        Text('${apixu.forecast.windSpeed.toStringAsFixed(1)}km/h'),
                       ],
                     ),
                   ),
@@ -245,7 +252,7 @@ class MyCurrentWeather extends StatelessWidget {
                       children: <Widget>[
                         Icon(Icons.wb_sunny),
                         Text('UV:'),
-                        Text('8.3'),
+                        Text('${apixu.forecast.uvIndex.toStringAsFixed(1)}'),
                       ],
                     ),
                   ),
@@ -259,7 +266,7 @@ class MyCurrentWeather extends StatelessWidget {
                       children: <Widget>[
                         Icon(FontAwesomeIcons.tachometerAlt),
                         Text('Pressure:'),
-                        Text('1010.0mb'),
+                        Text('${((apixu.forecast.pressure)* 100).toStringAsFixed(1) } Pa'),
                       ],
                     ),
                   ),
@@ -272,7 +279,9 @@ class MyCurrentWeather extends StatelessWidget {
       //CONSTRUCT REFRESH BUTTON
       bottomNavigationBar: MaterialButton(
         color: Colors.blue[400],
-        onPressed: () {},
+        onPressed: () {
+          apixuNoListen.fetch();
+        },
         child: SizedBox(
           width: double.infinity,
           height: 50.0,
