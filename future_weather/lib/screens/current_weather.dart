@@ -56,7 +56,7 @@ class MyCurrentWeather extends StatelessWidget {
                         //JSON ADDED HERE
                         '${apixu.forecast.currentTemp.toStringAsFixed(1)}°C',
                         style: TextStyle(
-                          fontSize: 75,
+                          fontSize: 70,
                         ),
                       ),
                     ),
