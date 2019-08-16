@@ -54,7 +54,11 @@ class _MyLocationWeatherState extends State<MyLocationWeather> {
             child: Text('SEARCH'),
             onPressed: () {
                Provider.of<MyJSONWeather>(context).location = _textFieldController.text;
-               apixuNoListen.fetch();
+               var city =  Provider.of<MyJSONWeather>(context).location;
+               if (city == null){
+                 return null;
+               }else{
+               apixuNoListen.fetch();}
                Navigator.pop(context);
             },
           ),
