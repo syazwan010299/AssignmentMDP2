@@ -1,6 +1,11 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'JSONWeather.dart';
 import 'about_screen.dart';
+import 'package:http/http.dart' as http;
 
 class MyLocationWeather extends StatefulWidget {
   @override
@@ -8,12 +13,14 @@ class MyLocationWeather extends StatefulWidget {
 }
 
 class _MyLocationWeatherState extends State<MyLocationWeather> {
-
   TextEditingController _textFieldController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
+
+    var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Locations"),
@@ -29,6 +36,9 @@ class _MyLocationWeatherState extends State<MyLocationWeather> {
           ),
         ],
       ),
+      // body: ListView(
+
+      // ),
       body: Column(
         children: <Widget>[
           Padding(
@@ -42,7 +52,11 @@ class _MyLocationWeatherState extends State<MyLocationWeather> {
           ),
           RaisedButton(
             child: Text('SEARCH'),
-            onPressed: () {},
+            onPressed: () {
+               Provider.of<MyJSONWeather>(context).location = _textFieldController.text;
+               apixuNoListen.fetch();
+               Navigator.pop(context);
+            },
           ),
         ],
       ),

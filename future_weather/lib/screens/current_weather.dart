@@ -28,6 +28,7 @@ class MyCurrentWeather extends StatelessWidget {
         ],
       ),
       backgroundColor: Colors.blue[400],
+      
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -296,7 +297,7 @@ class MyCurrentWeather extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(FontAwesomeIcons.tint),
+                      Icon(FontAwesomeIcons.tint, color:Colors.black54),
                       Text('Humidity:'),
                       Text('${apixu.forecast.humidity.toStringAsFixed(1)}'),
                     ],
