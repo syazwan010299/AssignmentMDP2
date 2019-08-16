@@ -4,30 +4,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'JSONWeather.dart';
-import 'location_screen.dart';
+
 
 class MyCurrentWeather extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var apixu = Provider.of<MyJSONWeather>(context);
     var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
-    
+
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(apixu.forecast.locationName),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.menu, color: Colors.white),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyLocationWeather()),
-                );
-              }),
-        ],
-      ),
-      backgroundColor: Colors.blue[400],
       
       body: Container(
         decoration: BoxDecoration(
@@ -46,11 +31,22 @@ class MyCurrentWeather extends StatelessWidget {
           children: <Widget>[
             Container(
               child: SizedBox(
-                height: 275.0,
+                height: 300.0,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(apixu.forecast.locationName,
+                              style: TextStyle(fontSize: 30.0)),
+                        ],
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
@@ -297,7 +293,7 @@ class MyCurrentWeather extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(FontAwesomeIcons.tint, color:Colors.black54),
+                      Icon(FontAwesomeIcons.tint),
                       Text('Humidity:'),
                       Text('${apixu.forecast.humidity.toStringAsFixed(1)}'),
                     ],

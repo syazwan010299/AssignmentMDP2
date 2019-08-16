@@ -14,9 +14,7 @@ class _MyLocationWeatherState extends State<MyLocationWeather> {
 
   @override
   Widget build(BuildContext context) {
-
     var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
-
 
     return Scaffold(
       appBar: AppBar(
@@ -50,13 +48,10 @@ class _MyLocationWeatherState extends State<MyLocationWeather> {
           RaisedButton(
             child: Text('SEARCH'),
             onPressed: () {
-               Provider.of<MyJSONWeather>(context).location = _textFieldController.text;
-               var city =  Provider.of<MyJSONWeather>(context).location;
-               if (city == null){
-                 return null;
-               }else{
-               apixuNoListen.fetch();}
-               Navigator.pop(context);
+              Provider.of<MyJSONWeather>(context).location =
+                  _textFieldController.text;
+              apixuNoListen.fetch();
+              Navigator.pop(context);
             },
           ),
         ],

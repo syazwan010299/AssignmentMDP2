@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
-import 'location_screen.dart';
-
 class APIXUForecast {
   final String locationName;
   final String currentLastUpdated;
