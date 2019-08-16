@@ -11,7 +11,7 @@ class MyCurrentWeather extends StatelessWidget {
   Widget build(BuildContext context) {
     var apixu = Provider.of<MyJSONWeather>(context);
     var apixuNoListen = Provider.of<MyJSONWeather>(context, listen: false);
-
+    
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
